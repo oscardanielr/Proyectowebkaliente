@@ -1,0 +1,19 @@
+#color-direccion{
+    background: rgba(98, 149, 243, 0.774) !important;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: cursive;
+    box-shadow: 2px -3px 4px blanchedalmond,
+                -2px 0px 4px blanchedalmond;
+               
+    
+};
+
+#colorcont  {
+    
+    color: black !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    font-family: cursive !important;
+};

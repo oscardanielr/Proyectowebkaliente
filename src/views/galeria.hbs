@@ -1,0 +1,86 @@
+<link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/Plantilla/css/isotope.css" media="screen">
+<link rel="stylesheet" href="/Plantilla/css/flexslider.css" type="text/css">
+<link rel="stylesheet" href="/Plantilla/js/fancybox/jquery.fancybox.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/Plantilla/css/bootstrap.css">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700">
+
+<link rel="stylesheet" href="/Plantilla/css/style.css">
+<!-- skin -->
+<link rel="stylesheet" href="/Plantilla/skin/default.css">
+
+</head>
+{{>navigation_dos}}
+<main>
+
+    <!-- section works -->
+    <br>
+    <br>
+    <br>
+    <section id="section-works" class="section appear clearfix">
+        <div class="container">
+
+            <div class="row mar-bot40">
+                <div class="col-md-offset-3 col-md-6">
+                    <div class="section-header">
+                        <h2 class="section-heading animated" data-animation="bounceInUp">Portafolio</h2>
+                        <h4>Bienvenido conoce un poco de nuestra trayectoria musical a lo largo del territorio nacional</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <nav id="filter" class="col-md-12 text-center">
+                    <ul>
+                        <li><a href="#" class="current btn btn-small" data-filter="*">Todas</a></li>
+                        <li><a href="#" class="btn btn-small" data-filter=".webdesign"> Design</a></li>
+                        <li><a href="#" class="btn btn-small" data-filter=".photography">Photography</a></li>
+                    </ul>
+                </nav>
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="portfolio-items isotopeWrapper clearfix" id="3">
+
+                            {{#each galeria}}
+                            
+                            <article class="col-md-4 isotopeItem photography">
+                                <div class="portfolio-item">
+                                    <img src="{{url}}" alt="">
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <h5><a href="#">{{titulo}}</a></h5>
+                                            <a href="{{url}}" class="fancybox"><i
+                                                    class="fa fa-plus fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            {{/each}}
+
+                            <article class="col-md-4 isotopeItem webdesign">
+                                <div class="portfolio-item">
+                                    <img src="img/portfolio/img1.jpg" alt="">
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <h5><a href="#">Portfolio name</a></h5>
+                                            <a href="img/portfolio/img1.jpg" class="fancybox"><i
+                                                    class="fa fa-plus fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</main>
+{{>footer}}

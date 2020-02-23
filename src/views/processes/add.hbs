@@ -1,0 +1,887 @@
+  <link rel="stylesheet" href="/admin/css/main.css">   <!--I-->
+  
+    <!-- skin -->
+    <link rel="stylesheet" href="/skin/default.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/admin/css/main.css">
+    
+</head>
+
+<main>
+<!-- SideBar -->
+<section class="full-box cover dashboard-sideBar">
+  <div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
+  <div class="full-box dashboard-sideBar-ct">
+    <!--SideBar Title -->
+    <div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
+      Kaliente <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+    </div>
+    <!-- SideBar User info -->
+    <div class="full-box dashboard-sideBar-UserInfo">
+      <figure class="full-box">
+        <figcaption class="text-center text-titles">{{user.username}}</figcaption>
+      </figure>
+      <ul class="full-box list-unstyled text-center">
+
+        <li>
+          <a href="/logout" class="btn-exit-system">
+            <i class="zmdi zmdi-power"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- SideBar Menu -->
+    <ul class="list-unstyled full-box dashboard-sideBar-Menu">
+      <li>
+        <a href="/route/add">
+          <i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> INICIO
+        </a>
+      </li>
+      <li>
+        <a href="#!" class="btn-sideBar-SubMenu">
+          <i class="zmdi zmdi-case zmdi-hc-fw"></i> Administracion <i class="zmdi zmdi-caret-down pull-right"></i>
+        </a>
+        <ul class="list-unstyled full-box">
+          <li>
+            <a data-toggle="modal" data-target="#album"><i class="zmdi zmdi-font zmdi-hc-fw"></i></i>Agregar video</a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target="#biografia"><i class="zmdi zmdi-book zmdi-hc-fw"></i> biografia</a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target="#contactanos"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>
+              contactanos</a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target="#eventos"><i class="zmdi zmdi-timer zmdi-hc-fw "></i> eventos</a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target="#historia"><i class="zmdi zmdi-font zmdi-hc-fw"></i> historia</a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target="#galeria"><i class="zmdi zmdi-book zmdi-hc-fw"></i>Imagenes</a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target="#integrantes"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>
+              Add integrantes</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#!" class="btn-sideBar-SubMenu">
+          <i class="zmdi zmdi-card zmdi-hc-fw"></i> PROCESOS <i class="zmdi zmdi-caret-down pull-right"></i>
+        </a>
+        <ul class="list-unstyled full-box">
+          <li>
+            <a data-toggle="modal" data-target="#mensajes"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Mensajes</a>
+          </li>
+
+        </ul>
+      </li>
+      <li>
+    </ul>
+  </div>
+</section>
+
+<!-- Content page-->
+<section class="full-box dashboard-contentPage">
+  <!-- NavBar -->
+  <nav class="full-box dashboard-Navbar">
+    <ul class="full-box list-unstyled text-right">
+      <li class="pull-left">
+        <a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
+      </li>
+      <li>
+        <a href="#!" class="btn-Notifications-area">
+          <i class="zmdi zmdi-notifications-none"></i>
+          <span class="badge">8</span>
+        </a>
+      </li>
+      <br>
+    </ul>
+  </nav>
+  <!-- Content page central -->
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i><small>{{user.username}}</small></h1>
+    </div>
+    <p class="lead">proyecto base creado para la asignatura PROGRAMACION WEB de la facultad ingenieria de sistemas 
+                    a cargo del docente Danny Lopez.
+                    Integrantes:
+                    <br>
+                    -Oscar Daniel Restrepo Rojas 
+                    <br>
+                    -valeria salazar serna 
+                    <br>
+                    -David Felipe Alvaro Bilivar
+    </p>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="container-fluid p-4">
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <div class="card text-center">
+                  <div class="card-header">
+                    <h3> NUEVOS MENSAJES </h3>
+                  </div>
+                  {{#each mensajes}}
+                  <div class="col-md-3">
+                    <div class="card-body">
+                    <div class="form-group">
+                      <h3>{{nombre}}</h3>
+                      <hr>
+                      <h4>{{email}}</h4>
+                      <hr>
+                      <span>{{asunto}}</span>
+                      <br>
+                      <h5>{{mensaje}}</h5>
+                    </div>
+                  </div>
+                  </div>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="container-fluid p-4">
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <div class="card text-center">
+                  <div class="card-header">
+                    <h3> ALBUM (-repertorio-) </h3>
+                  </div>
+                  {{#each album}}
+                  <div class="row">
+                    <div class="col-5 ">
+                      <div class="card-header">
+                        <p>{{nombre}}</p>
+                        <samp>{{description}}</samp>
+                      </div>
+                      <div class="card-body">
+                        <iframe src="{{url}}" frameborder="0" allow="accelerometer;
+                             autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <br>
+
+                        <a href="/route/delete-album/{{id}}" class="btn btn-danger"> Eliminar</a>
+
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+
+
+
+<!-- Notifications area -->
+<section class="full-box Notifications-area">
+  <div class="full-box Notifications-bg btn-Notifications-area"></div>
+  <div class="full-box Notifications-body">
+    <div class="Notifications-body-title text-titles text-center">
+      MENSAJES <i class="zmdi zmdi-close btn-Notifications-area"></i>
+    </div>
+    <div class="list-group">
+      {{#each mensajes}}
+      <div class="list-group-item">
+        <div class="row-action-primary">
+          <i class="zmdi zmdi-alert-triangle"></i>
+        </div>
+        <div class="row-content">
+          <div class="least-content">{{created_at}}</div>
+          <h4 class="list-group-item-heading">{{nombre}}</h4>
+          <p class="list-group-item-text">{{mensaje}}</p>
+        </div>
+      </div>
+      <div class="list-group-separator"></div>
+      {{/each}}
+    </div>
+
+  </div>
+</section>
+
+
+<!--   -->
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="album" tabindex="-1" role="dialog" aria-labelledby="text-modalx"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center>
+          <h3 class="modal-title" id="text-modalx">ALBUM</h3>
+        </center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-content">
+
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Nuevo album</h3>
+            </div>
+            <div class="card-body">
+              <form action="/route/album" method="POST">
+                <div class="form-group">
+                  <input type="text" name="url" placeholder="url" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="nombre" placeholder="nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="description" placeholder="descripcion" class="form-control">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-success btn-block">
+                    GUARDAR
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal 2-->
+<div class="modal fade bd-example-modal-lg" id="biografia" tabindex="-1" role="dialog" aria-labelledby="text-modalx"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center>
+          <h3 class="modal-title" id="text-modalx">BIOGRAFIA</h3>
+        </center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {{#if biografia }}
+      <div class="modal-content">
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>BIOGRAFIA</h3>
+            </div>
+            {{#each biografia}}
+            <div class="card-body">
+              <div class="form-group">
+                <h2>{{origen}}</h2>
+              </div>
+              <div class="form-group">
+                <h3>{{genero}}</h3>
+              </div>
+              <div class="form-group">
+                <h4>{{email}}</h4>
+              </div>
+              <div class="form-group">
+                <p>{{parrafo_1}}</p>
+              </div>
+              <div class="form-group">
+                <p>{{parrafo_2}}</p>
+              </div>
+
+              <div class="form-group">
+                <a href="/route/delete-biografia/{{id}}" class="btn btn-danger"> Eliminar </a>
+                <a data-toggle="modal" data-target="#biografia-edit" class="btn btn-secondary"> Editar</a>
+
+
+                <div class="modal fade bd-example-modal-lg" id="biografia-edit" tabindex="-1" role="dialog"
+                  aria-labelledby="text-modalx" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <center>
+                          <h3 class="modal-title" id="text-modalx">BIOGRAFIA</h3>
+                        </center>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-content">
+                        <div class="col-md-8 mx-auto">
+                          <div class="card text-center">
+                            <div class="card-header">
+                              <h3>BIOGRAFIA</h3>
+                            </div>
+                            <div class="card-body">
+                              <form action="/route/biografia-edit/{{id}}" method="POST">
+                                <div class="form-group">
+                                  <input type="text" name="origen" placeholder="{{origen}}" value="{{origen}}"
+                                    class="form-control">
+                                </div>
+                                <div class="form-group">
+                                  <input type="text" name="genero" placeholder="{{genero}}" value="{{genero}}"
+                                    class="form-control">
+                                </div>
+                                <div class="form-group">
+                                  <input type="email" name="email" placeholder="{{email}}" value="{{email}}"
+                                    class="form-control">
+                                </div>
+                                <div class="form-group">
+                                  <p>Parrafo uno</p>
+                                  <textarea name="parrafo_1" id="parrafo_1" cols="auto"
+                                    rows="auto">{{parrafo_1}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                  <p>Parrafo dos</p>
+                                  <textarea name="parrafo_2" id="parrafo_2" cols="auto"
+                                    rows="auto">{{parrafo_2}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                  <button class="btn btn-success btn-block">
+                                    GUARDAR
+                                  </button>
+                                </div>
+                              </form>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      {{else}}
+      <div class="modal-content">
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>BIOGRAFIA</h3>
+            </div>
+            <div class="card-body">
+              <form action="/route/biografia" method="POST">
+                <div class="form-group">
+                  <input type="text" name="origen" placeholder="origen" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="genero" placeholder="genero" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="email" name="email" placeholder="emal" class="form-control">
+                </div>
+                <div class="form-group">
+                  <p>Parrafo uno</p>
+                  <textarea name="parrafo_1" id="parrafo_1" cols="auto" rows="auto"></textarea>
+                </div>
+                <div class="form-group">
+                  <p>Parrafo dos</p>
+                  <textarea name="parrafo_2" id="parrafo_2" cols="auto" rows="auto"></textarea>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-success btn-block">
+                    GUARDAR
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal 3-->
+<div class="modal fade bd-example-modal-lg" id="contactanos" tabindex="-1" role="dialog" aria-labelledby="text-modalx"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center>
+          <h3 class="modal-title" id="text-modalx">Contactanos</h3>
+        </center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      {{#if contactanos}}
+
+      {{#each contactanos}}
+      <div class="modal-content">
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Datos de Contacto </h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <h2>{{direccion}}</h2>
+              </div>
+              <div class="form-group">
+                <h2>{{telefono_1}}</h2>
+              </div>
+              <div class="form-group">
+                <h2>{{telefono_2}}</h2>
+              </div>
+
+              <div class="form-group">
+
+
+                <!--11111111111111111111111111111111111111111111111111111111-->
+                <div class="form-group">
+                  <a href="/route/delete-contactanos/{{id}}" class="btn btn-danger"> Eliminar </a>
+                  <a data-toggle="modal" data-target="#contactanos-edit" class="btn btn-secondary"> Editar</a>
+
+
+                  <div class="modal fade bd-example-modal-lg" id="contactanos-edit" tabindex="-1" role="dialog"
+                    aria-labelledby="text-modalx" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="col-md-8 mx-auto">
+                          <div class="card text-center">
+                            <div class="card-header">
+                              <h3>Datos de Contacto </h3>
+                            </div>
+                            <div class="card-body">
+                              <form action="/route/contactos-edit/{{id}}" method="POST">
+                                <div class="form-group">
+                                  <input type="text" name="direccion" placeholder="{{direccion}}" class="form-control"
+                                    value="{{direccion}}">
+                                </div>
+                                <div class="form-group">
+                                  <input type="number" name="telefono_1" placeholder="{{telefono_1}}"
+                                    class="form-control" value="{{telefono_1}}">
+                                </div>
+                                <div class="form-group">
+                                  <input type="number" name="telefono_2" placeholder="{{telefono_2}}"
+                                    class="form-control" value="{{telefono_2}}">
+                                </div>
+                                <div class="form-group">
+                                  <button class="btn btn-success btn-block">
+                                    GUARDAR
+                                  </button>
+                                </div>
+                              </form>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--11111111111111111111111111111111111111111111111111111111-->
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+      {{else}}
+      <div class="modal-content">
+
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Datos de Contacto </h3>
+            </div>
+            <div class="card-body">
+              <form action="/route/contactos" method="POST">
+                <div class="form-group">
+                  <input type="text" name="direccion" placeholder="direccion" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="telefono_1" placeholder="telefono_1" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="telefono_2" placeholder="telefono_2" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <button class="btn btn-success btn-block">
+                    GUARDAR
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal 4-->
+<div class="modal fade bd-example-modal-lg" id="eventos" tabindex="-1" role="dialog" aria-labelledby="text-modalx"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center>
+          <h3 class="modal-title" id="text-modalx">Agregar nuevo evento</h3>
+        </center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-content">
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Datos del evento </h3>
+            </div>
+            <div class="card-body">
+              <form action="/route/eventos" method="POST">
+                <div class="form-group">
+                  <input type="text" name="titulo" placeholder="titulo" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="descripcion" placeholder="descripcion" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="url" name="url" placeholder="url de la imagen" class="form-control">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-success btn-block">
+                    GUARDAR
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal 5-->
+<div class="modal fade bd-example-modal-lg" id="historia" tabindex="-1" role="dialog" aria-labelledby="text-modalx"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center>
+          <h3 class="modal-title" id="text-modalx">Agregar historia</h3>
+        </center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {{#if historia}}
+      {{#each historia}}
+      <div class="modal-content">
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Datos de la historia </h3>
+            </div>
+            <div class="card-body">
+              
+                <div class="form-group">
+                  <h2>{{titulo}}</h2>
+                </div>
+                <div class="form-group">
+                  <h2>{{descripcion}}</h2>
+                </div>
+                <div class="form-group">
+                  <!--11111111111111111111111111111111111111111111111111111111-->
+                  <div class="form-group">
+                    <a href="/route/delete-historia/{{id}}" class="btn btn-danger"> Eliminar </a>
+                    <a data-toggle="modal" data-target="#historia-edit" class="btn btn-secondary"> Editar</a>
+
+
+                    <div class="modal fade bd-example-modal-lg" id="historia-edit" tabindex="-1" role="dialog"
+                      aria-labelledby="text-modalx" aria-hidden="true">
+                      <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="col-md-8 mx-auto">
+                            <div class="card text-center">
+                              <div class="card-header">
+                                <h3>Datos de Contacto </h3>
+                              </div>
+                              <div class="card-body">
+                                <form action="/route/historia-edit/{{id}}" method="POST">
+                                  <div class="form-group">
+                                    <input type="text" name="titulo" placeholder="{{titulo}}" class="form-control"
+                                      value="{{titulo}}">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" name="descripcion" placeholder="{{descripcion}}"
+                                      class="form-control" value="{{descripcion}}">
+                                  </div>
+
+                                  <div class="form-group">
+                                    <button class="btn btn-success btn-block">
+                                      GUARDAR
+                                    </button>
+                                  </div>
+                                </form>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--11111111111111111111111111111111111111111111111111111111-->
+                </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+      {{else}}
+      <div class="modal-content">
+
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Datos de la historia </h3>
+            </div>
+            <div class="card-body">
+              <form action="/route/historia" method="POST">
+                <div class="form-group">
+                  <input type="text" name="titulo" placeholder="titulo" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="descripcion" placeholder="descripcion" class="form-control">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-success btn-block">
+                    GUARDAR
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!-- Modal galeria-->
+<div class="modal fade bd-example-modal-lg" id="galeria" tabindex="-1" role="dialog" aria-labelledby="text-modalx"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center>
+          <h3 class="modal-title" id="text-modalx">GALERIA</h3>
+        </center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-content">
+
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Nueva imagen</h3>
+            </div>
+            <div class="card-body">
+              <form action="/route/galeria" method="POST">
+                <div class="form-group">
+                  <input type="text" name="titulo" placeholder="titulo" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="url" placeholder="url" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <button class="btn btn-success btn-block">
+                    GUARDAR
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!-- Modal Mensajes-->
+<div class="modal fade bd-example-modal-lg" id="mensajes" tabindex="-1" role="dialog" aria-labelledby="text-modalx"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center>
+          <h3 class="modal-title" id="text-modalx">GALERIA</h3>
+        </center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="container-fluid p-4">
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <div class="card text-center">
+                  <div class="card-header">
+                    <h3> NUEVOS MENSAJES </h3>
+                  </div>
+                  {{#each mensajes}}
+                  <div class="col-md-3">
+                    <div class="card-body">
+                    <div class="form-group">
+                      <h3>{{nombre}}</h3>
+                      <hr>
+                      <h4>{{email}}</h4>
+                      <hr>
+                      <span>{{asunto}}</span>
+                      <br>
+                      <h5>{{mensaje}}</h5>
+                    </div>
+                  </div>
+                  </div>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°-->
+
+<div class="modal fade bd-example-modal-lg" id="integrantes" tabindex="-1" role="dialog" aria-labelledby="text-modalx"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <center>
+          <h3 class="modal-title" id="text-modalx">Agregar Artista</h3>
+        </center>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-content">
+
+        <div class="col-md-8 mx-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Nuevo integrante</h3>
+            </div>
+            <div class="card-body">
+              <form action="/route/artistas" method="POST">
+              <div class="form-group">
+                  <input type="url" name="url" placeholder="url imagen" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="nombre" placeholder="nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="email" name="email" placeholder="email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="descripcion" placeholder="descripcion" class="form-control">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-success btn-block">
+                    GUARDAR
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
