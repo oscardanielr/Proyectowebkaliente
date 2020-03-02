@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="plantilla/js/rs-plugin/css/settings.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/Plantilla/css/isotope.css" media="screen">
 <link rel="stylesheet" href="/Plantilla/css/flexslider.css" type="text/css">
 <link rel="stylesheet" href="/Plantilla/js/fancybox/jquery.fancybox.css" type="text/css" media="screen">
@@ -20,33 +21,57 @@
   <br>
   <section id="section-works" class="section appear clearfix">
     <div class="container">
+      <div class="row">
+        <script data-ad-client="ca-pub-9549469569955328" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </div>
       <div class="row mar-bot40">
 
         <div class="section-header">
           <h2>Disfruta de nuestros mejores exitos </h2>
-
+          {{#each biografia}}
           <div class="row ">
-
-            {{#each biografia}}
-            <div class="col-md-3 mx-auto">
-              <center>
-                <img src="/img/guitarist-1031087_1920.jpg" alt=" agrupacion Kaliente" width="300px" height="300px">
-              </center>
+            <div class="col-md-4 ">
+              
+                <img src="/img/guitarist-1031087_1920.jpg" alt=" agrupacion Kaliente" width="350px" height="632px">
+              
             </div>
-            <div class="col-md-9">
-              <div class="col-md-4" id="color-direccion">
+            <div class="col-md-3" id="color-direccion">      
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <hr>
                 <h2>{{origen}}</h2>
-                <samp>{{genero}}</samp>
+                <hr>
+                <br>
+                <br>
+                <br>
+                <h2>{{genero}}</h2>
+                <br>
+                <br>
+                <br>
                 <p>{{email}}</p>
+                <br>
+                <br>
+                <br>
+                <hr>
+                <samp><h2>Kaliente</h2></samp>  
+                <hr>
+
+                
               </div>
-              <div class="col-md-7  " id="color-direccion">
+              <div class="col-md-5  " id="color-direccion">
                 <div class="card-block">
                   <p> {{parrafo_1}}</p>
                   <hr>
                   <p> {{parrafo_2}}</p>
                 </div>
               </div>
-            </div>
+            
+
+
             {{else}}
             <div class="container">
               <div class="row">
@@ -59,34 +84,34 @@
           </div>
           <hr>
           <div class="row">
-            <div class="col-md-12">
-              {{#each artistas}}
-              <div class="col-md-3">
-                <div class="card text-center">
-                <div class="card-header" >
-                  <img src="{{url}}" alt="{{nombre}}" width="120px" height="120px"  >
-                  <h3>{{nombre}}</h3>
-                </div>
-                <div class="card-body">
-                  <div class="form-group">
-                    <h3> {{email}}</h3>
+          {{#each artistas}}
+                  <div class="col-sm-6 col-md-4" id="colorart">
+                    <div class="thumbnail">
+                      <img src="{{url}}" alt="{{nombre}}">
+                      <div class="caption">
+                        <center>
+                          <h3>{{nombre}}</h3>
+                        </center>
+                        <hr>
+                        <div class="card-body">
+                          <div class="form-group">
+                            <h3> {{email}}</h3>
+                          </div>
+                          <div class="form-group">
+                            <h3> {{descripcion}}</h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <h3> {{descripcion}}</h3>
-                  </div>
-
-                </div>
-              </div>
-              </div>
-              {{/each}}
-            </div>
+            {{/each}}
+          </div>
           </div>
         </div>
-        <br>
       </div>
+      <br>
+    </div>
     </div>
   </section>
-
-
 </main>
 {{>footer}}
