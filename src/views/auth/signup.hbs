@@ -1,10 +1,26 @@
+<link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/Plantilla/css/isotope.css" media="screen">
+<link rel="stylesheet" href="/Plantilla/css/flexslider.css" type="text/css">
+<link rel="stylesheet" href="/Plantilla/js/fancybox/jquery.fancybox.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/Plantilla/css/bootstrap.css">
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700">
+
+<link rel="stylesheet" href="/Plantilla/css/style.css">
+<!-- skin -->
+<link rel="stylesheet" href="/Plantilla/skin/default.css">
+
 <div class="container p-4">
-    {{#each id}}
-    <div class="container">
+    {{#if user}}
+
+    <div class="container p-4 mx-auto">
         <div class="row">
             <div class="col-md-12">
                 <h2> ya se tiene un usuario registrado</h2>
             </div>
+            <a href="/" class="btn btn-primary m-4">
+                        volver
+            </a>
         </div>
     </div>
     {{else}}
@@ -35,5 +51,5 @@
             </div>
         </div>
     </div>
-    {{/each}}
+    {{/if}}
 </div>

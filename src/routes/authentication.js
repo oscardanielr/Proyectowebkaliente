@@ -2,11 +2,14 @@
 const express= require('express');
 const router= express.Router();
 
+const pool = require('../database');
+
 const passport = require('passport')
 const { isNotLoggedIn  ,isLoggedIn } = require('../lib/auth');
 
-router.get('/admon-dd-proces-add-to11-signup',isNotLoggedIn, (req, res) => {
-    res.render('auth/signup')
+router.get('/admon-dd-proces-add-to11-signup',isNotLoggedIn, async (req, res) => {
+    const user = await pool.query('SELECT * FROM admon ');
+    res.render('auth/signup' , {user});
 });
 router.post('/signup',isNotLoggedIn, passport.authenticate('local.signup',{
        successRedirect: '/profile',
